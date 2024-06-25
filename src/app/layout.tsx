@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
+import {Toaster} from "@/components/ui/toaster";
 
 
 export const metadata: Metadata = {
@@ -38,6 +39,7 @@ export default function RootLayout({
           >
             <Navbar/>
         {children}
+            <Toaster />
         </ThemeProvider>
       </body>
     </html>
