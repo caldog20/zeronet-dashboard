@@ -3,6 +3,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import Navbar from "@/components/navbar";
 
 
 export const metadata: Metadata = {
@@ -35,6 +36,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <Navbar/>
         {children}
         </ThemeProvider>
       </body>
