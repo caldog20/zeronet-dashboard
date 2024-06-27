@@ -17,8 +17,8 @@ import {
     AvatarFallback,
     AvatarImage,
 } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import {Badge} from "@/components/ui/badge"
+import {Button} from "@/components/ui/button"
 import {
     Card,
     CardContent,
@@ -34,8 +34,8 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import {Input} from "@/components/ui/input"
+import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"
 import {cn} from "@/lib/utils";
 import {clsx} from "clsx";
 import {usePathname} from "next/navigation";
@@ -69,7 +69,7 @@ export default function Navbar() {
                     className="flex items-center gap-2 text-lg font-semibold md:text-base"
                 >
                     <Network className="h-6 w-6"/>
-                    <span className="sr-only">Acme Inc</span>
+                    <span className="sr-only">ZeroNet</span>
                 </Link>
                 {
                     links.map((link, index) => (
@@ -79,8 +79,8 @@ export default function Navbar() {
                             className={clsx(
                                 "transition-colors hover:text-foreground",
                                 {
-                                    "text-foreground" : isActiveLink(link.href),
-                                    "text-muted-foreground" : !isActiveLink(link.href),
+                                    "text-foreground": isActiveLink(link.href),
+                                    "text-muted-foreground": !isActiveLink(link.href),
                                 }
                             )}
                             // className="text-foreground transition-colors hover:text-foreground"
@@ -104,45 +104,36 @@ export default function Navbar() {
                 <SheetContent side="left">
                     <nav className="grid gap-6 text-lg font-medium">
                         <Link
-                            href="#"
+                            href="/"
                             className="flex items-center gap-2 text-lg font-semibold"
                         >
-                            <Package2 className="h-6 w-6"/>
-                            <span className="sr-only">Acme Inc</span>
+                            <Network className="h-6 w-6"/>
+                            <span className="sr-only">ZeroNet</span>
                         </Link>
-                        <Link href="#" className="hover:text-foreground">
-                            Dashboard
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-muted-foreground hover:text-foreground"
-                        >
-                            Orders
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-muted-foreground hover:text-foreground"
-                        >
-                            Products
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-muted-foreground hover:text-foreground"
-                        >
-                            Customers
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-muted-foreground hover:text-foreground"
-                        >
-                            Analytics
-                        </Link>
+                        {
+                            links.map((link, index) => (
+                                <Link
+                                    key={index}
+                                    href={link.href}
+                                    className={clsx(
+                                        "transition-colors hover:text-foreground",
+                                        {
+                                            "text-foreground": isActiveLink(link.href),
+                                            "text-muted-foreground": !isActiveLink(link.href),
+                                        }
+                                    )}
+                                    // className="text-foreground transition-colors hover:text-foreground"
+                                >
+                                    {link.name}
+                                </Link>
+                            ))
+                        }
                     </nav>
                 </SheetContent>
             </Sheet>
             <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
                 <div className="ml-auto">
-                <ModeToggle/>
+                    <ModeToggle/>
                 </div>
                 <DropdownMenu>
                     <DropdownMenuTrigger asChild>

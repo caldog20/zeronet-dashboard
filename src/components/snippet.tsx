@@ -11,10 +11,12 @@ export default function Snippet({className = defaultCss, text}: { className?: st
             <code className={cn("bg-accent", className)}>
                 {text}
             </code>
-            <button onClick={() => {navigator.clipboard.writeText(text)}} className="ml-2">
+            <button onClick={() =>
+                navigator.clipboard.writeText(text)
+            } className="ml-2">
                 <span className="sr-only">Copy</span>
                 <Copy className="h-3 w-3"/>
-          </button>
+            </button>
         </pre>
     )
 }

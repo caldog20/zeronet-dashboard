@@ -1,47 +1,47 @@
-import type { Metadata } from "next";
+import type {Metadata} from "next";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-import { Inter as FontSans } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
+import {cn} from "@/lib/utils";
+import {Inter as FontSans} from "next/font/google";
+import {ThemeProvider} from "@/components/theme-provider";
 import Navbar from "@/components/navbar";
 import {Toaster} from "@/components/ui/toaster";
 
 
 export const metadata: Metadata = {
-  title: "ZeroNet Dashboard",
-  description: "Management Dashboard for ZeroNet Overlay",
+    title: "ZeroNet Dashboard",
+    description: "Management Dashboard for ZeroNet Overlay",
 };
 
 const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
+    subsets: ["latin"],
+    variable: "--font-sans",
 })
 
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+                                       children,
+                                   }: Readonly<{
+    children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head />
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
-      >
+    return (
+        <html lang="en" suppressHydrationWarning>
+        <head/>
+        <body
+            className={cn(
+                "min-h-screen  font-sans antialiased",
+                fontSans.variable
+            )}
+        >
         <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
-          >
+        >
             <Navbar/>
-        {children}
-            <Toaster />
+            {children}
+            <Toaster/>
         </ThemeProvider>
-      </body>
-    </html>
-  );
+        </body>
+        </html>
+    );
 }
