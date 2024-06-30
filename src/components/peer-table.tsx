@@ -28,11 +28,12 @@ import {Peer, PeerList} from "@/lib/types";
 import {toast} from "@/components/ui/use-toast";
 import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hover-card";
 import {ToastAction} from "@/components/ui/toast";
+import Link from "next/link";
 
 export default function PeerTable() {
     const {data, error, mutate, isLoading} = useSWR("GetPeers", GetPeers, {
         revalidateOnFocus: false,
-        refreshInterval: 30,
+        refreshInterval: 30 * 1000,
         shouldRetryOnError: false,
         // errorRetryInterval: 30 * 1000
     });
@@ -148,7 +149,12 @@ export default function PeerTable() {
                                                 {/*</div>*/}
                                             </TableCell>
                                             <TableCell>
+                                                <Link
+                                                    href={`/peer/${peer.id}`}
+                                                    className="flex items-center gap-2 text-lg font-semibold md:text-base"
+                                                >
                                                 {peer.hostname}
+                                                </Link>
                                             </TableCell>
                                             <TableCell className="hidden md:table-cell">
                                                 {peer.ip}
@@ -175,21 +181,21 @@ export default function PeerTable() {
                                         {/*    <DialogDescription>*/}
                                         {/*    </DialogDescription>*/}
                                             <div className="grid gap-4 py-4">
-                                                <div className="grid grid-cols-4 items-center gap-4">
-                                                    <Label className="text-right">
-                                                        Admin
-                                                    </Label>
-                                                    <div className="text-medium font-medium">
-                                                        {peer.disabled ?
-                                                            <Badge variant="destructive" className="">
-                                                                Disabled
-                                                            </Badge> :
-                                                            <Badge className="bg-success">
-                                                                Enabled
-                                                            </Badge>
-                                                        }
-                                                    </div>
-                                                </div>
+                                                {/*<div className="grid grid-cols-4 items-center gap-4">*/}
+                                                {/*    <Label className="text-right">*/}
+                                                {/*        Admin*/}
+                                                {/*    </Label>*/}
+                                                {/*    <div className="text-medium font-medium">*/}
+                                                {/*        {peer.disabled ?*/}
+                                                {/*            <Badge variant="destructive" className="">*/}
+                                                {/*                Disabled*/}
+                                                {/*            </Badge> :*/}
+                                                {/*            <Badge className="bg-success">*/}
+                                                {/*                Enabled*/}
+                                                {/*            </Badge>*/}
+                                                {/*        }*/}
+                                                {/*    </div>*/}
+                                                {/*</div>*/}
 
                                                 {/*<div className="grid grid-cols-4 items-center gap-4">*/}
                                                 {/*    <Label className="text-right">*/}
@@ -225,24 +231,24 @@ export default function PeerTable() {
                                                     </Label>
                                                     {peer.prefix}
                                                 </div>
-                                                <div className="grid grid-cols-4 items-center gap-4">
-                                                    <Label className="text-right">
-                                                        User
-                                                    </Label>
-                                                    <Snippet text={peer.user}/>
-                                                </div>
+                                                {/*<div className="grid grid-cols-4 items-center gap-4">*/}
+                                                {/*    <Label className="text-right">*/}
+                                                {/*        User*/}
+                                                {/*    </Label>*/}
+                                                {/*    <Snippet text={peer.user}/>*/}
+                                                {/*</div>*/}
                                                 <div className="grid grid-cols-4 items-center gap-4">
                                                     <Label className="text-right">
                                                         Last Auth
                                                     </Label>
                                                     <div className="whitespace-nowrap">{peer.lastAuth}</div>
                                                 </div>
-                                                <div className="grid grid-cols-4 items-center gap-4">
-                                                    <Label className="text-right">
-                                                        Created
-                                                    </Label>
-                                                    <div className="whitespace-nowrap">{peer.createdAt}</div>
-                                                </div>
+                                                {/*<div className="grid grid-cols-4 items-center gap-4">*/}
+                                                {/*    <Label className="text-right">*/}
+                                                {/*        Created*/}
+                                                {/*    </Label>*/}
+                                                {/*    <div className="whitespace-nowrap">{peer.createdAt}</div>*/}
+                                                {/*</div>*/}
                                             </div>
                                         {/*</DialogHeader>*/}
                                         {/*<DialogFooter className="sm:justify-end">*/}
