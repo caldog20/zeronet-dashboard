@@ -38,7 +38,7 @@ export default function Page({ params }: { params: { id: number } }) {
                 <main
                     className="flex min-h-[calc(100vh_-_theme(spacing.16))] flex-1 flex-col gap-4 bg-muted/40 p-4 md:gap-8 md:p-10">
                     <div className="mx-auto grid w-full max-w-6xl gap-2">
-                        <h1 className="text-3xl font-semibold">Peer Details</h1>
+                        <h1 className="text-3xl font-semibold">Peer Settings</h1>
                     </div>
                     <div
                         className="mx-auto grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
@@ -53,16 +53,32 @@ export default function Page({ params }: { params: { id: number } }) {
                         <div className="grid gap-8">
                             <Card className="h-[436px]">
                                 <CardHeader>
-                                    <CardTitle>Peer Details</CardTitle>
+                                    <CardTitle>Peer Status</CardTitle>
                                 </CardHeader>
                                 <CardContent>
+                                        {
+                                          Array.apply(0, Array(2)).map((_, i) => (
+                                              <div key={i} className="grid grid-cols-1 gap-4 mt-4 mx-16">
+                                                  <Skeleton className="h-8"/>
+                                                  <Skeleton className="h-8"/>
+                                                  <Skeleton className="h-8"/>
+                                              </div>
+                                          ))
+                                      }
                                 </CardContent>
                             </Card>
                             <Card className="h-[164px]">
                                 <CardHeader>
                                     <CardTitle>Manage Peer</CardTitle>
+                                    <CardDescription>
+                                        Disable or Delete Peer.
+                                    </CardDescription>
                                 </CardHeader>
                                 <CardContent>
+                                   <div className="flex flex-row gap-4 w-full">
+                                       <Skeleton className="h-10 w-[115px]"/>
+                                       <Skeleton className="h-10 w-[115px]"/>
+                                   </div>
                                 </CardContent>
                             </Card>
                         </div>
@@ -266,7 +282,7 @@ export default function Page({ params }: { params: { id: number } }) {
                             <CardHeader>
                                 <CardTitle>Manage Peer</CardTitle>
                                 <CardDescription>
-                                    Disable or Delete Peer
+                                    Disable or Delete Peer.
                                 </CardDescription>
                             </CardHeader>
                             <CardContent>
